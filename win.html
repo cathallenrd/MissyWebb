@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ff4d6d">
+    <title>Congratulations! You Won! 💝</title>
+    <link rel="stylesheet" href="win.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- iOS specific meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💝</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Main celebration section -->
+        <section class="celebration">
+            <div class="confetti-container" id="confettiContainer"></div>
+            
+            <div class="trophy">
+                <div class="trophy-icon">💝</div>
+                <h1>Congratulations!</h1>
+            </div>
+            
+            <div class="prize-message">
+                <h2>You've Won a Special Prize!</h2>
+                <p class="prize-description">For being the most amazing girlfriend in the world, you've earned something very special...</p>
+            </div>
+            
+            <div class="prize-reveal">
+                <div class="prize-box">
+                    <div class="box-lid"></div>
+                    <div class="box-body">
+                        <div class="claddagh-ring">
+                            <div class="claddagh-heart">💖</div>
+                            <div class="claddagh-hands">🤲</div>
+                            <div class="claddagh-crown">👑</div>
+                        </div>
+                    </div>
+                </div>
+                <h3>A Beautiful Claddagh Ring</h3>
+                <p class="ring-meaning">The heart represents love, the hands represent friendship, and the crown represents loyalty</p>
+            </div>
+            
+            <div class="delivery-info">
+                <h3>🎁 Your Prize Will Be Delivered To You Now! 🎁</h3>
+                <div class="delivery-details">
+                    <div class="delivery-item">
+                        <span class="icon">📦</span>
+                        <span class="text">Special Delivery: In-Person Presentation</span>
+                    </div>
+                    <div class="delivery-item">
+                        <span class="icon">⏰</span>
+                        <span class="text">Delivery Time: Right Now!</span>
+                    </div>
+                    <div class="delivery-item">
+                        <span class="icon">💕</span>
+                        <span class="text">Delivery Method: With All My Love</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="final-message">
+                <p>This is just the beginning of our beautiful journey together. Thank you for making me the happiest person alive!</p>
+                <p class="signature">With all my love,<br>Your Boyfriend 💖</p>
+            </div>
+            
+            <div class="celebration-buttons">
+                <button class="btn celebrate-btn" id="moreConfetti">More Celebration! 🎉</button>
+                <button class="btn music-btn" id="toggleMusic">Play Celebration Music 🎵</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Hidden audio element for celebration music -->
+    <audio id="celebrationMusic" loop>
+        <source src="https://assets.codepen.io/1468070/celebration-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Link to external JavaScript file -->
+    <script src="win.js"></script>
+</body>
+</html>
