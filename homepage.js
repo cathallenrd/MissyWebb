@@ -160,6 +160,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 image: "pictures/funny/IMG_2069.JPG"
             },
             {
+                image: "pictures/funny/IMG_2069.JPG"
+            },
+            {
                 image: "pictures/funny/IMG_2218.JPG"
             },
             {
@@ -172,6 +175,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 image: "pictures/funny/IMG_2129.JPG"
             },
             {
+                image: "pictures/funny/IMG_1974.JPG"
+            },
+             {
                 image: "pictures/funny/IMG_1974.JPG"
             },
             {
@@ -811,4 +817,5 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault(); // Prevent zooming
         }
     }, { passive: false });
+
 });
