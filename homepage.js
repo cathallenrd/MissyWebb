@@ -98,6 +98,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 image: "pictures/fire/IMG_2082.JPG"
             },
             {
+                image: "pictures/fire/IMG_2052.jpg"
+            },
+            {
                 image: "pictures/fire/IMG_2083.JPG"
             },
             {
@@ -157,10 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ],
         2: [ // Funny Photos
             {
-                image: "pictures/funny/IMG_2069.JPG"
-            },
-            {
-                image: "pictures/funny/IMG_2069.JPG"
+                image: "pictures/funny/IMG_2069.jpg"
             },
             {
                 image: "pictures/funny/IMG_2218.JPG"
@@ -175,10 +175,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 image: "pictures/funny/IMG_2129.JPG"
             },
             {
-                image: "pictures/funny/IMG_1974.JPG"
+                image: "pictures/funny/IMG_2111.PNG"
             },
-             {
-                image: "pictures/funny/IMG_1974.JPG"
+            {
+                image: "pictures/funny/IMG_1974.jpg"
             },
             {
                 image: "pictures/funny/IMG_1896.JPG"
@@ -191,6 +191,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 image: "pictures/funny/IMG_2141.JPG"
+            },
+            {
+                image: "pictures/funny/IMG_2112.PNG"
             },
             {
                 image: "pictures/funny/IMG_2219.JPG"
@@ -206,6 +209,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 image: "pictures/funny/IMG_2225.JPG"
+            },
+            {
+                image: "pictures/funny/IMG_2115.PNG"
             },
             {
                 image: "pictures/funny/IMG_2228.JPG"
@@ -817,5 +823,4 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault(); // Prevent zooming
         }
     }, { passive: false });
-
 });
