@@ -32,9 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (navigator.vibrate) {
             navigator.vibrate([100, 50, 100, 50, 100]);
         }
-        
-        // Start subtle background animation
-        animateBackground();
     }
     
     /**
@@ -54,9 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const confetti = document.createElement('div');
         confetti.classList.add('confetti');
         
-        // Random properties
-        const colors = ['#FFD700', '#FFA500', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7'];
-        const shapes = ['circle', 'square', 'triangle'];
+        // Random properties - using pink and red theme colors
+        const colors = ['#FF4D6D', '#FF8FA3', '#FFCCD5', '#DC143C', '#FF69B4', '#FF1493', '#E91E63'];
         const size = Math.random() * 10 + 5;
         
         // Set random styles
@@ -96,22 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 confetti.parentNode.removeChild(confetti);
             }
         }, duration * 1000);
-    }
-    
-    /**
-     * Animates the background gradient
-     */
-    function animateBackground() {
-        let hue = 0;
-        setInterval(() => {
-            hue = (hue + 0.5) % 360;
-            document.body.style.background = `
-                linear-gradient(135deg, 
-                    hsl(${hue}, 100%, 65%) 0%, 
-                    hsl(${(hue + 30) % 360}, 100%, 75%) 50%, 
-                    hsl(${(hue + 60) % 360}, 100%, 85%) 100%)
-            `;
-        }, 100);
     }
     
     /**
@@ -198,8 +178,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, { passive: false });
     
-    // Show welcome message
-    setTimeout(() => {
-        showMessage('Welcome to your celebration! 🎉');
-    }, 1000);
 });
