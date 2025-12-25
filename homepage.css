@@ -753,3 +753,128 @@ footer {
         padding: 15px 20px;
     }
 }
+
+/* Add to the end of your homepage.css file */
+
+/* Christmas Button Section */
+.christmas-button-section {
+    text-align: center;
+    padding: 40px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255, 77, 109, 0.1) 0%, rgba(255, 143, 163, 0.1) 100%);
+    border: 2px dashed var(--primary-color);
+}
+
+.christmas-button-container h2 {
+    color: #c41e3a;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.christmas-button-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--dark-color);
+}
+
+/* Center the button container */
+.christmas-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.christmas-btn-link {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Center the button itself */
+.christmas-btn {
+    background: linear-gradient(45deg, #c41e3a 0%, #ff4d6d 100%);
+    color: white;
+    padding: 20px 30px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
+    position: relative;
+    overflow: hidden;
+    /* Center the button within its container */
+    margin: 0 auto;
+}
+
+.christmas-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(196, 30, 58, 0.4);
+    background: linear-gradient(45deg, #ff4d6d 0%, #c41e3a 100%);
+}
+
+.christmas-btn:active {
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .christmas-button-container h2 {
+        font-size: 1.7rem;
+    }
+    
+    .christmas-btn {
+        font-size: 1.1rem;
+        padding: 18px 25px;
+    }
+    
+    .btn-icon {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .christmas-button-section {
+        padding: 30px 15px;
+    }
+    
+    .christmas-button-container h2 {
+        font-size: 1.5rem;
+    }
+    
+    .christmas-button-container p {
+        font-size: 1rem;
+    }
+    
+    .christmas-btn {
+        font-size: 1rem;
+        padding: 16px 20px;
+        gap: 10px;
+    }
+    
+    .btn-icon {
+        font-size: 1.2rem;
+    }
+}

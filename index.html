@@ -4,34 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#ff4d6d">
-    <title>Mandela Hall Event</title>
+    <title>Will You Be My Girlfriend?</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- iOS specific meta tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
 </head>
 <body>
     <div class="container">
+        <!-- Header with main title -->
         <header>
             <h1>For Missy Webb</h1>
             <p></p>
         </header>
         
+        <!-- About section - explain your feelings -->
         <section class="about">
             <h2>A quick message from me</h2>
-            <p>Hello Darling, I'm going to do some mega minded level of guessing and say that I'm currently sitting infront of you (prolly staring into thos beautiful eyes of yours). If I'm right (which I always am) gimme a lil air kiss please 🙏.</p>
-            <p>Enough of that now. I'm sure by this time youve figured out what I've been up to all day. I'm hoping whatever plans I came up with were somewhat good (gotta make sure this part is the best). You're such a special girl to me already so I want everything to be perfect (like you).</p>
-            <p>I can't emphasise how much happier I've been the past two months since properly becoming your "Friend". You're such a huge bundle of joy and you really bring a lot more light into my life. Everything about you to me is perfect. Your perfect smile, your yappings sesh's, your cute little scowls, your wacky sneezes, your tism intrests, your HUGE personality, your contagius laugh, your space outs, even your clumsyness. Everything about you just makes me fall for you more. I could go on forever (you've seen drunk me), so I'll cut it short here so that I can talk to you again at the table at some point but you really are everything to me already.</p>
+            <p>Hello Darling, Im going to do some mega minded level of guessing and say that i am currently sitting infront of you (prolly staring into thos beautiful eyes of yours) hopefully at dinner of some sorts. If im right (which I always am) gimme a lil air kiss please 🙏.</p>
+            <p>Enough of that now. Im sure by this time youve figured out what ive been up to all day. Im joping whatever plans I came up with were somewhat good (gotta make sure this part is the best). Youre such a special girl to me already so I want everything to be perfect (like you).</p>
+            <p>I cant emphasise how much happier I've been the past month or two since properly becoming you "Friend". Youre such a huge bundle of joy and you really bring a lot more light into my life. Everything about you to me is perfect. Your perfect smile, your yappings sesh's, your cute little scowls, your wacky sneezes, your tism intrests, your HUGE personality, your contagius laugh, your space outs, even your clumsyness. Everything about you just makes me fall for you more. I could go on forever (youve seen drunk me), so ill cut it short here so that i can talk to you again at the table at some point but you really are everything to me already.</p>
             <p>Anyway.... Enjoy the website!</p>
         </section>
         
+        <!-- Memories section - add photos of you together -->
         <section class="memories">
             <h2>Cute lil memories</h2>
             <div class="memory-grid">
                 
+                <!-- Memory 3 - Replace with your own photo and caption -->
                 <div class="memory-item" data-slide-index="0">
                     <img src="https://placehold.co/600x400/ffccd5/590d22?text= Our Dates" alt="Dates">
                 </div>
@@ -46,9 +51,11 @@
             </div>
         </section>
         
+        <!-- Reasons section - list why you want to be with them -->
         <section class="reasons">
             <h2>20 Reasons I love you</h2>
             <div class="reasons-list">
+                <!-- Customize these reasons with your own thoughts -->
                 <ul>
                     <li>Your gorgeous eyes</li>
                     <li>Your contagius laugh</li>
@@ -74,25 +81,48 @@
             </div>
         </section>
         
+        <!-- The proposal section - the main interactive element -->
+       <!-- The proposal section - the main interactive element -->
 <section class="proposal">
     <h2>The Big Question!</h2>
     <div class="proposal-text">
-        <p>I've been wanting to ask this for a while and I'm sorry at how long its taken.</p>
+        <p>Ive been wanting to ask this for a while and im sorry at how long its take.</p>
         <p>Since week 1 of us talking I've already felt that you were partner and that we were destined to be something.</p>
         <p>Its pained me that I havent been able to fully call you my Girlfriend, so on that note darling...</p>
         <p>Will you be my Girlfriend?</p>
     </div>
     
     <div class="buttons">
+        <!-- Yes button - triggers celebration and redirects to win.html -->
         <a href="win.html" class="btn-link">
             <button class="btn yes-btn" id="yesButton">Yes, I will!</button>
         </a>
         
+        <!-- No button - moves around when hovered -->
         <button class="btn no-btn" id="noButton">I need to think</button>
     </div>
 </section>
+        
+        <!-- Footer with final message -->
+        <footer>
+        </footer>
     </div>
 
+<section class="christmas-button-section">
+    <div class="christmas-button-container">
+        <h2>🎄 A Special Christmas Surprise 🎄</h2>
+        <p>Since it's the season of love and joy, I have one more surprise for you...</p>
+        <a href="christmas.html" class="christmas-btn-link">
+            <button class="btn christmas-btn">
+                <span class="btn-icon">🎅</span>
+                <span class="btn-text">Open Your Christmas Surprise</span>
+                <span class="btn-icon">🎁</span>
+            </button>
+        </a>
+    </div>
+</section>
+
+    <!-- Slideshow Overlay -->
     <div class="slideshow-overlay" id="slideshowOverlay">
         <div class="slideshow-container">
             <div class="slideshow-header">
@@ -101,6 +131,7 @@
             </div>
             
             <div class="slideshow-slides" id="slideshowSlides">
+                <!-- Slides will be dynamically inserted here -->
             </div>
             
             <div class="slideshow-controls">
@@ -114,9 +145,7 @@
         </div>
     </div>
 
+    <!-- Link to external JavaScript file -->
     <script src="homepage.js"></script>
 </body>
-
 </html>
-
-

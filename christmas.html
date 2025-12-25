@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#c41e3a">
+    <title>Merry Christmas My Love! ❤️🎄</title>
+    <link rel="stylesheet" href="christmas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <!-- iOS specific meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Snowfall effect -->
+        <div class="snowfall"></div>
+        
+        <!-- Christmas Header -->
+        <header class="christmas-header">
+            <div class="christmas-title">
+                <h1>🎄 Merry Christmas Darling! 🎄</h1>
+                <p class="subtitle">A special message for my amazing lil gimp</p>
+            </div>
+            <div class="christmas-decoration">
+                <div class="garland"></div>
+                <div class="lights"></div>
+            </div>
+        </header>
+        
+        <!-- Main Christmas Message -->
+        <section class="christmas-message">
+            <div class="message-card">
+                <div class="card-header">
+                    <div class="ornament left">🎀</div>
+                    <h2>To My Missy,</h2>
+                    <div class="ornament right">🎀</div>
+                </div>
+                
+                <div class="card-body">
+                    <p class="message-text">
+                        This is my lil suprise. Its not the most amazing feat but I knew I had to do a lil something for you. 
+                        So enjoy a few little games and words from me 😁
+                    </p>
+                    
+                    <p class="message-text">
+                        I'm really happy I'm yours this christmas. You've made these past few months so amazing and I have no clue what I'd be doing without you.
+                        Having you around as my partner has made my life so much better and has really helped me get through the past few months. You're such an amazing girl and I love being able to wake up everyday
+                        and know that I must be atleast a little lucky if I have you in my life. 
+                    </p>
+                    
+                    <p class="message-text">
+                      You really are the 'One'
+                    </p>
+
+                    <p class="message-text">
+                      I'll end my little rant here so that you can atleast get through this page before work. Overall, Jess you're the best things
+                      thats ever happened to me and there are no words that could every describe just how much I love you. I hope you have an amzing chritsmas (even despite work).
+                    </p>
+
+                    <p class="message-text">
+                      Merry Christams Missy, I love you.
+                    </p>
+                    
+                    <div class="special-wish">
+                        <h3>🎁 My Christmas Wish For Us 🎁</h3>
+                        <p>
+                            I wish this to be one of our last christmas's apart, and that we continue to be together till christmas 
+                            is no longer celebrated (so forever 😉).
+                        </p>
+                    </div>
+                    
+                    <div class="signature">
+                        <p>With all my love this Christmas and always,</p>
+                        <p class="signature-name">Your Darling Boyfriend</p>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="mistletoe">💋</div>
+                    <p class="kiss-message">P.S. Don't forget about my Christmas kiss when I see you again (I asked Santa for it)</p>
+                    <div class="mistletoe">💋</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Christmas Memories Section -->
+        <section class="christmas-memories">
+            <h2>Our First Christmas Together</h2>
+            <div class="memory-grid">
+                <div class="memory-item wish-jar-container">
+                    <h3>🎄 A Christmas Wish Jar Just For You 🎄</h3>
+                    <p class="wish-jar-instruction">Click on the jar to add wishes and click wishes to see special messages!</p>
+                    <div class="wish-jar" id="wishJar">
+                        <!-- Wishes will appear here -->
+                    </div>
+                    <div class="wish-stats">
+                        <p>Wishes added: <span id="wishCount">0</span> / 12</p>
+                        <p class="wish-message" id="wishMessage">Start wishing! ✨</p>
+                    </div>
+                    <button class="btn reset-wishes" id="resetWishes">Reset Wishes 🔄</button>
+                </div>
+                
+                <div class="memory-item christmas-promise">
+                    <h3>My Promise to You</h3>
+                    <ul class="promise-list">
+                        <li>To always make your Christmas magical</li>
+                        <li>To be your warmest hug on cold winter nights</li>
+                        <li>To love you more with each passing second</li>
+                        <li>To become my best self for you</li>
+                        <li>To be there no matter what</li>
+                        <li>To love you no matter how you're feeling</li>
+                        <li>To show you what a happy life with someone can look like</li>
+                    </ul>
+                </div>
+                
+                <div class="memory-item christmas-love-list">
+                    <h3>🎄 12 Things I Love About You This Christmas 🎄</h3>
+                    <div class="love-list-container" id="loveListContainer">
+                        <!-- Love items will be dynamically added here -->
+                    </div>
+                    <button class="btn reveal-btn" id="revealLoveItem">Reveal Next Thing I Love About You ❤️</button>
+                    <p class="love-list-message" id="loveListMessage">Click to discover what I love about you!</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Interactive Christmas Tree -->
+        <section class="christmas-tree-section">
+            <h2>🎄 Decorate Our Christmas Tree 🎄</h2>
+            <p>Tap on the ornaments to hang them on the tree!</p>
+            
+            <div class="tree-container">
+                <div class="tree" id="christmasTree">
+                    <!-- Tree will be decorated with ornaments -->
+                </div>
+                
+                <div class="ornaments-selector">
+                    <h3>Choose Ornaments:</h3>
+                    <div class="ornament-options">
+                        <button class="ornament-btn" data-ornament="❤️">❤️</button>
+                        <button class="ornament-btn" data-ornament="⭐">⭐</button>
+                        <button class="ornament-btn" data-ornament="🔔">🔔</button>
+                        <button class="ornament-btn" data-ornament="🎀">🎀</button>
+                        <button class="ornament-btn" data-ornament="🎁">🎁</button>
+                        <button class="ornament-btn" data-ornament="🦌">🦌</button>
+                    </div>
+                    <button class="btn reset-tree" id="resetTree">Reset Tree</button>
+                </div>
+            </div>
+            
+            <p class="tree-message" id="treeMessage">Add some love to our tree! ❤️</p>
+        </section>
+        
+        <!-- Christmas Wishes Button -->
+        <section class="wish-section">
+            <div class="wish-container">
+                <h3>Send Me Your Christmas Wish! 🎅</h3>
+                <p>What would you like for Christmas? I'm all ears!</p>
+                <div class="wish-input">
+                    <textarea id="christmasWish" placeholder="Write your Christmas wish here... 🎁" maxlength="200"></textarea>
+                    <div class="wish-controls">
+                        <div class="char-count">Characters: <span id="charCount">0</span>/200</div>
+                        <button class="btn wish-btn" id="sendWish">Send Wish 💌</button>
+                    </div>
+                </div>
+                <p class="wish-note">(Don't worry, this is just for a lil fun! Your wish will be displayed below)</p>
+                <div class="wish-display" id="wishDisplay">
+                    <!-- Wishes will appear here -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Navigation Back -->
+        <section class="navigation">
+            <div class="nav-buttons">
+                <a href="index.html" class="btn nav-btn home-btn">🏠 Back to Homepage</a>
+                <a href="win.html" class="btn nav-btn win-btn">💝 View Our Celebration</a>
+            </div>
+            <p class="closing-message">Merry CHristmas Darling, I hope your day is as magical as you are.</p>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="christmas-footer">
+            <p>Made with ❤️ for the most beautiful amazing girlfriend in the world.</p>
+            <div class="footer-icons">
+                <span>🎄</span>
+                <span>❤️</span>
+                <span>🎅</span>
+                <span>🎁</span>
+                <span>✨</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Audio for Christmas sounds (optional) -->
+    <audio id="christmasBell" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-christmas-bells-299.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="ornamentSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-magic-sparkles-300.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="christmas.js"></script>
+</body>
+</html>
