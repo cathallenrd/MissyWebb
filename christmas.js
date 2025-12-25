@@ -544,10 +544,13 @@ function initChristmasTree() {
 /**
  * Initializes the wish system
  */
+/**
+ * Initializes the wish system with Formspree email submission
+ */
 function initWishSystem() {
     const wishTextarea = document.getElementById('christmasWish');
     const charCount = document.getElementById('charCount');
-    const sendWishButton = document.getElementById('sendWish');
+    const wishForm = document.getElementById('christmasWishForm');
     const wishDisplay = document.getElementById('wishDisplay');
     
     // Update character count
@@ -565,8 +568,10 @@ function initWishSystem() {
         }
     });
     
-    // Send wish button
-    sendWishButton.addEventListener('click', function() {
+    // Form submission
+    wishForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
         const wish = wishTextarea.value.trim();
         
         if (!wish) {
@@ -579,18 +584,47 @@ function initWishSystem() {
             return;
         }
         
-        // Add wish to display
+        // Add wish to local display first
         addWishToDisplay(wish);
         
-        // Clear textarea
-        wishTextarea.value = '';
-        charCount.textContent = '0';
+        // Show loading state
+        const submitBtn = document.getElementById('sendWish');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Sending... ✨";
+        submitBtn.disabled = true;
         
-        // Show success message
-        showWishMessage("Your Christmas wish has been sent to Santa! 🎅", 'success');
-        
-        // Confetti effect
-        createWishConfetti();
+        try {
+            // Send via Formspree
+            const formData = new FormData(wishForm);
+            
+            const response = await fetch(wishForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                showWishMessage("Your Christmas wish has been sent to my email! 🎅", 'success');
+                
+                // Clear textarea
+                wishTextarea.value = '';
+                charCount.textContent = '0';
+                
+                // Confetti effect
+                createWishConfetti();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Error submitting wish:', error);
+            showWishMessage("Failed to send. Your wish is saved locally! ✨", 'error');
+        } finally {
+            // Reset button
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
     });
     
     /**
@@ -602,11 +636,12 @@ function initWishSystem() {
         wishItem.classList.add('wish-item');
         
         const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const date = new Date().toLocaleDateString();
         
         wishItem.innerHTML = `
-            <strong>🎁 Christmas Wish:</strong>
+            <strong>🎁 Your Christmas Wish:</strong>
             <p>${wish}</p>
-            <small>Sent at ${timestamp}</small>
+            <small>Sent on ${date} at ${timestamp}</small>
         `;
         
         // Add to display (at the top)
@@ -616,6 +651,54 @@ function initWishSystem() {
         const wishes = wishDisplay.querySelectorAll('.wish-item');
         if (wishes.length > 5) {
             wishDisplay.removeChild(wishes[wishes.length - 1]);
+        }
+        
+        // Save to localStorage for persistence
+        saveWishToStorage(wish, date, timestamp);
+    }
+    
+    /**
+     * Saves wish to localStorage
+     */
+    function saveWishToStorage(wish, date, time) {
+        try {
+            const savedWishes = JSON.parse(localStorage.getItem('christmasWishes') || '[]');
+            savedWishes.unshift({
+                wish: wish,
+                date: date,
+                time: time,
+                timestamp: Date.now()
+            });
+            
+            // Keep only last 10 wishes
+            if (savedWishes.length > 10) {
+                savedWishes.pop();
+            }
+            
+            localStorage.setItem('christmasWishes', JSON.stringify(savedWishes));
+        } catch (e) {
+            console.error('Error saving wish:', e);
+        }
+    }
+    
+    /**
+     * Loads saved wishes from localStorage
+     */
+    function loadSavedWishes() {
+        try {
+            const savedWishes = JSON.parse(localStorage.getItem('christmasWishes') || '[]');
+            savedWishes.forEach(wishData => {
+                const wishItem = document.createElement('div');
+                wishItem.classList.add('wish-item');
+                wishItem.innerHTML = `
+                    <strong>🎁 Your Christmas Wish:</strong>
+                    <p>${wishData.wish}</p>
+                    <small>Sent on ${wishData.date} at ${wishData.time}</small>
+                `;
+                wishDisplay.appendChild(wishItem);
+            });
+        } catch (e) {
+            console.error('Error loading wishes:', e);
         }
     }
     
@@ -705,6 +788,9 @@ function initWishSystem() {
             }, duration);
         }
     }
+    
+    // Load saved wishes when page loads
+    loadSavedWishes();
 }
 
 /**
