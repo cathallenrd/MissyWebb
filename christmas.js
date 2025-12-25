@@ -132,7 +132,7 @@ function initLoveList() {
     
     function revealNextItem() {
         if (revealedItems >= maxItems) {
-            loveListMessage.textContent = "That's some of the things I love about you! (Which is actually everything!) 💕";
+            loveListMessage.textContent = "That's some fo the things I love about you! (Which is actually everything!) 💕";
             revealButton.disabled = true;
             revealButton.textContent = "All Revealed! 🎉";
             return;
@@ -768,5 +768,4 @@ style.textContent = `
         to { transform: translate(-50%, -100%); opacity: 0; }
     }
 `;
-
 document.head.appendChild(style);
