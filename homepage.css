@@ -878,3 +878,108 @@ footer {
         font-size: 1.2rem;
     }
 }
+
+/* ==========================================
+ * LATE BIRTHDAY BUTTON SECTION
+ * ========================================== */
+
+.birthday-button-section {
+    text-align: center;
+    padding: 40px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255, 143, 163, 0.15) 0%, rgba(255, 77, 109, 0.15) 100%);
+    border: 2px dashed #ff69b4;
+}
+
+.birthday-button-container h2 {
+    color: var(--dark-color);
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.birthday-button-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--dark-color);
+}
+
+.birthday-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.birthday-btn-link {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+}
+
+.birthday-btn {
+    background: linear-gradient(45deg, #ff69b4 0%, var(--primary-color) 100%);
+    color: white;
+    padding: 20px 30px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.35);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.birthday-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.5);
+    background: linear-gradient(45deg, var(--primary-color) 0%, #ff69b4 100%);
+}
+
+.birthday-btn:active {
+    transform: translateY(-2px);
+}
+
+/* Mobile responsive scaling */
+@media (max-width: 768px) {
+    .birthday-button-container h2 {
+        font-size: 1.7rem;
+    }
+    
+    .birthday-btn {
+        font-size: 1.1rem;
+        padding: 18px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .birthday-button-section {
+        padding: 30px 15px;
+    }
+    
+    .birthday-button-container h2 {
+        font-size: 1.5rem;
+    }
+    
+    .birthday-button-container p {
+        font-size: 1rem;
+    }
+    
+    .birthday-btn {
+        font-size: 1rem;
+        padding: 16px 20px;
+        gap: 10px;
+    }
+}

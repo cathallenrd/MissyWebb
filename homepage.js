@@ -824,3 +824,70 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, { passive: false });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const birthdayBtn = document.querySelector('.birthday-btn');
+
+    if (!birthdayBtn) return;
+
+    // Palette matching your romantic/birthday aesthetic
+    const colors = ['#ff4d6d', '#ff8fa3', '#ff69b4', '#ffd166', '#06d6a0', '#118ab2', '#ffffff'];
+
+    function createConfettiPiece(x, y) {
+        const confetti = document.createElement('div');
+        
+        // Randomize size, shape, and color
+        const size = Math.random() * 8 + 6; // 6px - 14px
+        const isCircle = Math.random() > 0.4;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Random trajectory physics
+        const angle = Math.random() * Math.PI * 2; 
+        const distance = Math.random() * 80 + 30; // distance to explode outwards
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance - 20; // slight upward drift
+        const rotation = Math.random() * 360 + 180;
+
+        // Apply dynamic initial styles
+        Object.assign(confetti.style, {
+            position: 'fixed',
+            left: `${x}px`,
+            top: `${y}px`,
+            width: `${size}px`,
+            height: `${size}px`,
+            backgroundColor: color,
+            borderRadius: isCircle ? '50%' : '2px',
+            pointerEvents: 'none',
+            zIndex: '9999',
+            transform: 'translate(-50%, -50%) scale(1) rotate(0deg)',
+            opacity: '1',
+            transition: 'transform 0.7s cubic-bezier(0.12, 0.8, 0.32, 1), opacity 0.7s ease-out'
+        });
+
+        document.body.appendChild(confetti);
+
+        // Trigger animation on next frame
+        requestAnimationFrame(() => {
+            confetti.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0.6) rotate(${rotation}deg)`;
+            confetti.style.opacity = '0';
+        });
+
+        // Clean up DOM element when animation finishes
+        setTimeout(() => confetti.remove(), 750);
+    }
+
+    function spawnBurst(e) {
+        // Use cursor position if available, or center of the button
+        const rect = birthdayBtn.getBoundingClientRect();
+        const startX = e.clientX || rect.left + rect.width / 2;
+        const startY = e.clientY || rect.top + rect.height / 2;
+
+        // Spawn 24 confetti particles per hover
+        for (let i = 0; i < 24; i++) {
+            createConfettiPiece(startX, startY);
+        }
+    }
+
+    // Trigger on hover entry
+    birthdayBtn.addEventListener('mouseenter', spawnBurst);
+});
