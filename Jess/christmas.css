@@ -1,0 +1,910 @@
+/* 
+ * CHRISTMAS SURPRISE PAGE STYLES
+ * Christmas-themed page for your girlfriend
+ */
+
+/* Color variables - Christmas theme */
+:root {
+    --christmas-red: #c41e3a;
+    --christmas-green: #2d5a27;
+    --christmas-gold: #ffd700;
+    --christmas-silver: #c0c0c0;
+    --primary-color: #ff4d6d;
+    --secondary-color: #ff8fa3;
+    --dark-color: #590d22;
+    --light-color: #fff0f3;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Raleway', 'Helvetica Neue', sans-serif;
+    --font-cursive: 'Dancing Script', cursive;
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    --safe-area-inset-left: env(safe-area-inset-left);
+    --safe-area-inset-right: env(safe-area-inset-right);
+}
+
+/* General page styling with iOS safe area support */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(180deg, #0a2e1d 0%, #1a5c3a 30%, #fff0f3 100%);
+    color: var(--dark-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: var(--safe-area-inset-top) var(--safe-area-inset-right) var(--safe-area-inset-bottom) var(--safe-area-inset-left);
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-left: calc(20px + var(--safe-area-inset-left));
+    padding-right: calc(20px + var(--safe-area-inset-right));
+    position: relative;
+    z-index: 10;
+}
+
+/* Snowfall Effect */
+.snowfall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    filter: blur(0.5px);
+}
+
+/* Christmas Header */
+.christmas-header {
+    text-align: center;
+    padding: 40px 20px;
+    padding-top: calc(40px + var(--safe-area-inset-top));
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.christmas-title h1 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--christmas-gold);
+    font-style: italic;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--christmas-gold); }
+    to { text-shadow: 0 0 20px #fff, 0 0 30px var(--christmas-gold), 0 0 40px var(--christmas-gold); }
+}
+
+.christmas-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    overflow: hidden;
+}
+
+.garland {
+    height: 20px;
+    background: linear-gradient(90deg, 
+        var(--christmas-green) 0%, 
+        var(--christmas-red) 20%, 
+        var(--christmas-gold) 40%, 
+        var(--christmas-green) 60%, 
+        var(--christmas-red) 80%, 
+        var(--christmas-gold) 100%);
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.lights {
+    height: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
+.lights::before,
+.lights::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--christmas-red);
+    animation: twinkle 1s infinite alternate;
+}
+
+.lights::after {
+    animation-delay: 0.5s;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Christmas Message Card */
+.christmas-message {
+    margin: 30px 0;
+}
+
+.message-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 240, 243, 0.98) 100%);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--christmas-red);
+    position: relative;
+    overflow: hidden;
+}
+
+.message-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, var(--christmas-red), var(--christmas-gold), var(--christmas-green), var(--christmas-red));
+    z-index: -1;
+    border-radius: 25px;
+    opacity: 0.3;
+}
+
+.card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.card-header h2 {
+    font-family: var(--font-heading);
+    color: var(--christmas-red);
+    font-size: 2.2rem;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.ornament {
+    font-size: 2rem;
+    animation: swing 3s ease-in-out infinite;
+}
+
+.ornament.left { animation-delay: 0s; }
+.ornament.right { animation-delay: 1.5s; }
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+}
+
+.card-body {
+    padding: 20px 0;
+}
+
+.message-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.special-wish {
+    background: linear-gradient(45deg, rgba(255, 77, 109, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px 0;
+    border-left: 5px solid var(--christmas-gold);
+}
+
+.special-wish h3 {
+    font-family: var(--font-heading);
+    color: var(--christmas-green);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.signature {
+    text-align: center;
+    margin-top: 40px;
+    font-style: italic;
+}
+
+.signature-name {
+    font-family: var(--font-cursive);
+    font-size: 2rem;
+    color: var(--christmas-red);
+    margin-top: 10px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--christmas-green);
+}
+
+.mistletoe {
+    font-size: 2rem;
+    margin: 0 20px;
+    animation: float 2s ease-in-out infinite;
+}
+
+.kiss-message {
+    font-size: 1.1rem;
+    color: var(--christmas-red);
+    font-weight: bold;
+    text-align: center;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Christmas Memories Section */
+.christmas-memories {
+    margin: 50px 0;
+}
+
+.christmas-memories h2 {
+    text-align: center;
+    color: white;
+    font-size: 2.3rem;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.memory-item {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.christmas-promise h3 {
+    color: var(--christmas-green);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.promise-list {
+    list-style-type: none;
+}
+
+.promise-list li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.promise-list li::before {
+    content: '🎄';
+    position: absolute;
+    left: 0;
+}
+
+/* Christmas Tree Section */
+.christmas-tree-section {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.christmas-tree-section h2 {
+    color: white;
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.christmas-tree-section p {
+    color: var(--light-color);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.tree-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.tree {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    background: radial-gradient(circle at 50% 20%, var(--christmas-green) 0%, #1a5c3a 100%);
+    border-radius: 50% 50% 0 0;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.tree::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: #8B4513;
+    border-radius: 5px;
+}
+
+.tree-ornament {
+    position: absolute;
+    font-size: 1.8rem;
+    cursor: pointer;
+    user-select: none;
+    z-index: 20;
+    transition: transform 0.3s ease;
+}
+
+.tree-ornament:hover {
+    transform: scale(1.2);
+}
+
+.ornaments-selector {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.ornaments-selector h3 {
+    color: var(--christmas-green);
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.ornament-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.ornament-btn {
+    font-size: 2rem;
+    background: none;
+    border: 3px solid var(--christmas-red);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ornament-btn:hover {
+    background-color: var(--christmas-red);
+    color: white;
+    transform: scale(1.1);
+}
+
+.ornament-btn.active {
+    background-color: var(--christmas-red);
+    color: white;
+    transform: scale(1.1);
+}
+
+.reset-tree {
+    background-color: var(--christmas-green);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.reset-tree:hover {
+    background-color: var(--christmas-red);
+    transform: scale(1.05);
+}
+
+.tree-message {
+    margin-top: 20px;
+    color: var(--christmas-gold);
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+/* Wish Section */
+.wish-section {
+    margin: 50px 0;
+}
+
+.wish-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--christmas-gold);
+}
+
+.wish-container h3 {
+    color: var(--christmas-red);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.wish-container p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.wish-input {
+    margin: 30px 0;
+}
+
+.wish-input textarea {
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    border: 2px solid var(--christmas-green);
+    border-radius: 15px;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    resize: none;
+    margin-bottom: 15px;
+}
+
+.wish-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.char-count {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.wish-btn {
+    background: linear-gradient(45deg, var(--christmas-red), var(--primary-color));
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wish-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
+}
+
+.wish-note {
+    font-style: italic;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.wish-display {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 77, 109, 0.1);
+    border-radius: 15px;
+    min-height: 100px;
+    border: 2px dashed var(--christmas-red);
+    text-align: left;
+}
+
+.wish-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--christmas-green);
+    position: relative;
+}
+
+.wish-item::before {
+    content: '🎁';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+/* Navigation */
+.navigation {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.nav-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 250px;
+}
+
+.home-btn {
+    background-color: var(--christmas-green);
+    color: white;
+}
+
+.win-btn {
+    background-color: var(--christmas-red);
+    color: white;
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.closing-message {
+    font-size: 1.3rem;
+    color: white;
+    font-style: italic;
+    margin-top: 30px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+.christmas-footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: white;
+    margin-top: 50px;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.footer-icons span {
+    animation: spin 5s linear infinite;
+}
+
+.footer-icons span:nth-child(2) { animation-delay: 1s; }
+.footer-icons span:nth-child(3) { animation-delay: 2s; }
+.footer-icons span:nth-child(4) { animation-delay: 3s; }
+.footer-icons span:nth-child(5) { animation-delay: 4s; }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* === Christmas Love List Styles === */
+.christmas-love-list h3 {
+    color: var(--christmas-red);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.love-list-container {
+    min-height: 200px;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(255, 77, 109, 0.05);
+    border-radius: 15px;
+    border: 2px dashed var(--christmas-red);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.love-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--christmas-red);
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.love-item-number {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: var(--christmas-red);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.reveal-btn {
+    background: linear-gradient(45deg, var(--christmas-red), var(--primary-color));
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.reveal-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
+}
+
+.reveal-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.love-list-message {
+    text-align: center;
+    color: var(--christmas-green);
+    font-style: italic;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    min-height: 24px;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Christmas Wish Jar Styles === */
+.wish-jar-container h3 {
+    color: var(--christmas-green);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.wish-jar-instruction {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.wish-jar {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #8B4513, #A0522D);
+    border-radius: 50% 50% 10% 10%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.wish-jar:hover {
+    transform: scale(1.05);
+}
+
+.wish-jar::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: linear-gradient(145deg, #D2691E, #A0522D);
+    border-radius: 50% 50% 10% 10%;
+}
+
+.wish-jar::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    right: 20px;
+    height: 40px;
+    background: #FFD700;
+    border-radius: 50%;
+}
+
+.wish {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatWish 4s ease-in-out infinite;
+    z-index: 10;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes floatWish {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+.wish-stats {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.wish-stats p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+#wishCount {
+    font-weight: bold;
+    color: var(--christmas-red);
+    font-size: 1.3rem;
+}
+
+.wish-message {
+    color: var(--christmas-green);
+    font-style: italic;
+    min-height: 24px;
+    transition: all 0.3s ease;
+}
+
+.reset-wishes {
+    background-color: var(--christmas-green);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 20px auto;
+}
+
+.reset-wishes:hover {
+    background-color: var(--christmas-red);
+    transform: scale(1.05);
+}
+
+/* Wish reveal animation */
+@keyframes wishReveal {
+    0% { transform: scale(0) rotate(0deg); opacity: 0; }
+    100% { transform: scale(1) rotate(360deg); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .memory-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .tree-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .nav-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .ornament-options {
+        gap: 20px;
+    }
+    
+    .ornament-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 2.2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .christmas-title h1 {
+        font-size: 3.5rem;
+    }
+    
+    .card-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .tree {
+        width: 350px;
+        height: 450px;
+    }
+}
+
+/* iPhone 14 Pro specific optimizations */
+@media only screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) {
+    .christmas-header {
+        padding-top: calc(60px + var(--safe-area-inset-top));
+    }
+    
+    .christmas-title h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Enhanced touch targets for mobile */
+@media (max-width: 768px) {
+    .btn, .nav-btn, .ornament-btn, .wish-btn, .reset-tree, .reveal-btn, .reset-wishes {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .ornament-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+}
