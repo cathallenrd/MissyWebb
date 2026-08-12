@@ -1,0 +1,374 @@
+/* Color variables & Reset */
+:root {
+    --primary-color: #ff4d6d;
+    --secondary-color: #ff8fa3;
+    --dark-color: #590d22;
+    --light-color: #fff0f3;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Raleway', 'Helvetica Neue', sans-serif;
+    --font-handwriting: 'Caveat', cursive; /* Used for polaroids */
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7z' fill='%23ffccd5' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: calc(40px + var(--safe-area-inset-top)) 20px calc(40px + var(--safe-area-inset-bottom));
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.heartbeat-icon {
+    font-size: 3rem;
+    animation: heartbeat 1.5s infinite;
+    margin-bottom: 10px;
+}
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+.hero p {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* --- Interactive Timeline --- */
+.timeline-section {
+    position: relative;
+    margin: 40px 0 80px 0;
+}
+
+/* The main center line */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--secondary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 5px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+.timeline-item.left { left: 0; }
+.timeline-item.right { left: 50%; }
+
+/* The dots on the timeline */
+.timeline-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: var(--light-color);
+    border: 4px solid var(--primary-color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+.timeline-item.right .timeline-dot {
+    left: -10px;
+}
+
+.timeline-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.timeline-date {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+.timeline-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* --- Squiggly Line & Organic Photo Border --- */
+.timeline-photo-wrapper {
+    margin-top: 20px;
+    position: relative;
+    padding: 10px;
+}
+
+/* The "squiggly wire" connecting the center line to the photo */
+.timeline-photo-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    border-bottom: 2px dashed var(--primary-color);
+    top: -20px;
+}
+.timeline-item.left .timeline-photo-wrapper::before {
+    right: -30px;
+    border-right: 2px dashed var(--primary-color);
+    border-bottom-right-radius: 20px;
+}
+.timeline-item.right .timeline-photo-wrapper::before {
+    left: -30px;
+    border-left: 2px dashed var(--primary-color);
+    border-bottom-left-radius: 20px;
+}
+
+/* The photo itself with an organic, hand-drawn squiggly border */
+.timeline-photo-wrapper img {
+    width: 100%;
+    display: block;
+    border: 2px dashed var(--primary-color);
+    padding: 5px;
+    /* This creates a slightly imperfect, hand-drawn circle/box effect */
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    background: #fff;
+    transition: all 0.4s ease;
+}
+
+.timeline-photo-wrapper img:hover {
+    transform: scale(1.02) rotate(1deg);
+    border-radius: 15px 225px 15px 255px/255px 15px 225px 15px; /* Shifts the squiggly shape on hover */
+}
+
+/* --- Digital Love Letter --- */
+.love-letter-section {
+    margin: 80px auto;
+    max-width: 700px;
+}
+.letter-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 77, 109, 0.2);
+    box-shadow: 0 10px 30px rgba(89, 13, 34, 0.08);
+    position: relative;
+}
+.letter-card::before {
+    content: '“';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    color: var(--secondary-color);
+    opacity: 0.5;
+}
+.letter-card h2 {
+    font-family: var(--font-heading);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+.letter-card p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+.letter-signature {
+    text-align: right;
+    font-family: var(--font-handwriting);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-top: 30px;
+}
+
+/* --- Scattered Polaroids --- */
+.polaroid-section {
+    text-align: center;
+    margin: 80px 0;
+}
+.polaroid-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+.polaroid-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+.polaroid {
+    background: white;
+    padding: 12px 12px 50px 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transform: rotate(var(--rotation));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, z-index 0s;
+    cursor: pointer;
+    width: 250px;
+    position: relative;
+    z-index: 1;
+}
+.polaroid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #eee;
+}
+.polaroid .caption {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    font-family: var(--font-handwriting);
+    font-size: 1.5rem;
+    color: var(--dark-color);
+}
+.polaroid:hover, .polaroid.active {
+    transform: scale(1.1) rotate(0deg) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+/* --- Footer / Forward Section --- */
+.forward-section {
+    text-align: center;
+    margin: 60px 0 40px 0;
+}
+.forward-section h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 30px;
+}
+.back-btn-link { text-decoration: none; display: inline-block; }
+.back-btn {
+    background: linear-gradient(45deg, var(--dark-color) 0%, var(--primary-color) 100%);
+    color: white;
+    padding: 18px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(89, 13, 34, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+.back-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(89, 13, 34, 0.4); }
+
+/* --- Animations --- */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.2); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.2); }
+    60% { transform: scale(1); }
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Mobile iPhone Adjustments --- */
+@media screen and (max-width: 768px) {
+    .hero h1 { font-size: 2.3rem; }
+    
+    /* Timeline collapses to the left on mobile */
+    .timeline::after { left: 31px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 15px; }
+    .timeline-item.right { left: 0; }
+    .timeline-dot { left: 21px; }
+    .timeline-item.right .timeline-dot { left: 21px; }
+    
+    /* Fix squiggly line connection for mobile stack */
+    .timeline-photo-wrapper::before {
+        left: -30px !important;
+        border-right: none !important;
+        border-left: 2px dashed var(--primary-color) !important;
+        border-bottom-left-radius: 20px !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .letter-card { padding: 25px; }
+    .polaroid { width: calc(50% - 15px); }
+    .polaroid img, 
+    .polaroid video { height: 150px; } 
+    .polaroid .caption { font-size: 1.2rem; bottom: 10px; }
+}
+
+@media screen and (max-width: 480px) {
+    .polaroid { width: 100%; max-width: 280px; }
+    .polaroid img, 
+    .polaroid video { height: 220px; }
+}
+
+/* Apply the organic, hand-drawn border to BOTH images and videos */
+.timeline-photo-wrapper img,
+.timeline-photo-wrapper video {
+    width: 100%;
+    display: block;
+    border: 2px dashed var(--primary-color);
+    padding: 5px;
+    /* Hand-drawn circle/box effect */
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    background: #fff;
+    transition: all 0.4s ease;
+    object-fit: cover; /* This stops the video from squishing out of proportion */
+}
+
+/* Apply the hover shift effect to BOTH images and videos */
+.timeline-photo-wrapper img:hover,
+.timeline-photo-wrapper video:hover {
+    transform: scale(1.02) rotate(1deg);
+    border-radius: 15px 225px 15px 255px/255px 15px 225px 15px; 
+}
+
+/* Apply Polaroid sizing to BOTH images and videos */
+.polaroid img,
+.polaroid video {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* This forces the video to fill the square without stretching */
+    background: #eee;
+    display: block; /* Removes any weird spacing at the bottom of the video */
+}
